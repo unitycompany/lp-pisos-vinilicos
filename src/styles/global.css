@@ -41,10 +41,7 @@ button {
       outras que realmente podem ser animadas (background-color, padding, transform).
       flex-direction continuará sem transição suave.
     */
-    transition: flex-direction 0.2s ease,
-                background-color 0.2s ease,
-                all .2s ease,
-                padding 0.2s ease;
+    transition: all .2s ease!important;
 }
 
 button:hover {
@@ -68,8 +65,7 @@ button i {
     background-color: var(--color--brown);
 
     /* Transições que podem ser animadas */
-    transition: background-color 0.4s ease,
-                transform 0.4s ease;
+    transition: all .2s ease!important;
 }
 
 /*
@@ -79,5 +75,5 @@ button i {
 */
 button:hover i {
     background-color: var(--color--brown); /* Cor “inversa” ao novo fundo do botão */
-    transform: translateX(0px);         /* Desliza o ícone para a direita */
+    transform: translateX(0px)!important;         /* Desliza o ícone para a direita */
 }

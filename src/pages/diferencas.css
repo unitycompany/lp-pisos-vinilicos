@@ -83,6 +83,21 @@
     background-color: var(--color--white);
     padding: 30px;
     gap: 30px;
+    transition: all .2s ease!important;
+}
+
+.diferencas-card:hover{
+    background-color: var(--color--gray);
+    transform: scale(1.05)!important;
+    color: var(--color--white);
+}
+
+.diferencas-card:hover .diferencas-card-title h4{
+    color: var(--color--white);
+}
+
+.diferencas-card:hover .diferencas-card-title img{
+    filter: invert(100%) brightness(500%);
 }
 
 .diferencas-card-title{
