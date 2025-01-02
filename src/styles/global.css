@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+:root{
+    --color--black: #000000;
+    --color--gray: #353535;
+    --color--brown: #A98259;
+    --color--white: #ffffff;
+    --color--light--gray: #F5F5F5;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", serif;
+}
+
+html, body {
+    scroll-behavior: smooth;
+}
+
+button {
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: row;
+    padding-right: 20px;
+    gap: 15px;
+    background-color: var(--color--gray);
+    color: var(--color--white);
+    font-weight: 500;
+    font-size: 18px;
+    border-radius: 50px;
+    position: relative;
+
+    /*
+      Mantemos a transição declarada, mas adicionamos
+      outras que realmente podem ser animadas (background-color, padding, transform).
+      flex-direction continuará sem transição suave.
+    */
+    transition: flex-direction 0.2s ease,
+                background-color 0.2s ease,
+                all .2s ease,
+                padding 0.2s ease;
+}
+
+button:hover {
+    flex-direction: row-reverse;    /* Mantido conforme solicitado */
+    background-color: var(--color--brown);
+    padding-right: 0;
+    padding-left: 20px;
+    gap: 5px;
+}
+
+/* Ícone */
+button i {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 16px;
+    background-color: var(--color--brown);
+
+    /* Transições que podem ser animadas */
+    transition: background-color 0.4s ease,
+                transform 0.4s ease;
+}
+
+/*
+  No hover, para dar a sensação de que o ícone "sai" da esquerda
+  e ficou “preenchido” com outra cor, alteramos o background
+  e aplicamos um leve translateX.
+*/
+button:hover i {
+    background-color: var(--color--brown); /* Cor “inversa” ao novo fundo do botão */
+    transform: translateX(0px);         /* Desliza o ícone para a direita */
+}

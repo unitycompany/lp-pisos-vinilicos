@@ -1,0 +1,156 @@
+.home{
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    transform: translateX(-50%);
+    left: 50%;
+    top: 0;
+}
+
+.home-background {
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    background: var(--color--black);
+}
+
+.home-background::before{
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-image: url('https://imagedelivery.net/1n9Gwvykoj9c9m8C_4GsGA/0a99ed50-e8b3-40a9-4951-fcb957282b00/public');
+    background-position: center;
+    background-size: cover;
+    top: 0;
+    left: 0;
+    opacity: 0.7;
+}
+
+.home-container {
+    width: 100%;
+    max-width: 1280px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    transform: translateX(-50%);
+    left: 50%;
+    top: 0;
+}
+
+.home-texts{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    gap: 40px;
+    padding-left: 5%;
+}
+
+.home-texts img {
+    width: 350px;
+}
+
+.home-texts h1 {
+    font-size: 60px;
+    line-height: 100%;
+    color: var(--color--white);
+    font-weight: 500;
+}
+
+.home-texts h4 {
+    font-size: 25px;
+    color: var(--color--white);
+    font-weight: 200;
+    line-height: 110%;
+    margin-top: -20px;
+}
+
+.home-texts h4 b {
+    font-weight: 400;
+}
+
+.home-texts p {
+    color: var(--color--white);
+    font-weight: 300;
+    font-size: 16px;
+    opacity: 0.8;
+}
+
+.home-image{
+    width: 50%;
+    height: 100%;
+    position: relative;
+}
+
+.home-image img {
+    object-fit: contain;
+    width: 1000px;
+    height: 100%;
+    position: absolute;
+    right: -50%;
+    bottom: -20%;
+}
+
+
+@media (max-width: 768px){
+    .home{
+        height: 100dvh;
+    }
+
+    .home-container{
+        flex-direction: column;
+        padding: 10% 5%;
+        position: relative;
+    }
+
+    .home-background::before{
+        opacity: 0.5;
+    }
+
+    .home-texts{
+        width: 100%;
+        align-items: center;
+        padding-left: 0%;
+    }
+
+    .home-texts img{
+        width: 200px;
+    }
+
+    .home-texts h1 {
+        font-size: 45px;
+        text-align: center;
+    }
+
+    .home-texts h4 {
+        font-size: 20px;
+        text-align: center;
+    }
+
+    .home-texts p {
+        text-align: center;
+    }
+
+    .home-image{
+        position: absolute;
+        z-index: -1;
+        width: 100%;
+        left: 0;
+        bottom: 0;
+    }
+
+    .home-image img{
+        right: -30%;
+        bottom: -20%;
+        width: 500px;
+        height: 500px;
+        opacity: 0.5;
+    }
+}
