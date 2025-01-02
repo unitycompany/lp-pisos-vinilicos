@@ -160,6 +160,7 @@
         height: 350px;
         top: 0;
         padding-left: 0;
+        opacity: 0.4!important;
     }
 
     .comparacao-conteudo-card{
