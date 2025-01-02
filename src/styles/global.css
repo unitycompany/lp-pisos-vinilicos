@@ -36,24 +36,29 @@ button {
     font-size: 18px;
     border-radius: 50px;
     position: relative;
-
-    /*
-      Mantemos a transição declarada, mas adicionamos
-      outras que realmente podem ser animadas (background-color, padding, transform).
-      flex-direction continuará sem transição suave.
-    */
     transition: all .2s ease!important;
 }
 
-button:hover {
-    flex-direction: row-reverse;    /* Mantido conforme solicitado */
+button span{
+    position: relative;
+    top: 0;
+    left: 0;
+    transition: all .5s ease!important;
+}
+
+button:hover span{
+    left: -50px!important;
+}
+
+button:hover { 
     background-color: var(--color--brown);
     padding-right: 0;
     padding-left: 20px;
     gap: 5px;
+    transform: scale(1.05)!important;
+    box-shadow: 0 0 5px #A98259;
 }
 
-/* Ícone */
 button i {
     width: 50px;
     height: 50px;
@@ -64,17 +69,12 @@ button i {
     text-align: center;
     font-size: 16px;
     background-color: var(--color--brown);
-
-    /* Transições que podem ser animadas */
-    transition: all .2s ease!important;
+    position: relative;
+    left: 0;
+    transition: all .5s ease!important;
 }
 
-/*
-  No hover, para dar a sensação de que o ícone "sai" da esquerda
-  e ficou “preenchido” com outra cor, alteramos o background
-  e aplicamos um leve translateX.
-*/
-button:hover i {
-    background-color: var(--color--brown); /* Cor “inversa” ao novo fundo do botão */
-    transform: translateX(0px)!important;         /* Desliza o ícone para a direita */
+button:hover > i {
+    left: 80%!important;
+    position: relative;
 }

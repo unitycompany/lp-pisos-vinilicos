@@ -91,6 +91,10 @@
     padding: 12px;
 }
 
+.contactForm button:hover{
+    transform: none!important;
+}
+
 .contactForm span{
     font-size: 12px;
     opacity: 0.6;
