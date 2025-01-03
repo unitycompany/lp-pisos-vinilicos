@@ -11,7 +11,22 @@
     flex-direction: column;
     height: auto;
     padding-bottom: 2.5%;
+    z-index: 5;
+    background-color: #fff;
+    z-index: 2;
 }
+
+.comparacao::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 200%;
+    height: 100%;
+    background-color: #fff;
+}
+
 
 .comparacao-title{
     display: flex;

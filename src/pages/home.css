@@ -35,7 +35,6 @@
     align-items: center;
     justify-content: center;
     height: 100%;
-    overflow: hidden;
     position: relative;
     transform: translateX(-50%);
     left: 50%;
@@ -85,11 +84,13 @@
 
 .home-image{
     width: 50%;
+    right: 0;
     height: 100%;
     position: relative;
 }
 
 .home-image img {
+    z-index: -2;
     object-fit: contain;
     width: 1000px;
     height: 100%;
