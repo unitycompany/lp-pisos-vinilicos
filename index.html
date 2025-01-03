@@ -171,7 +171,7 @@
         </div>
 
         <div class="produtos-carrossel" data-aos="fade-up" data-aos-delay="100" >
-            <div class="swiper">
+            <div class="swiper" id="scrollImage" >
                 <div class="swiper-wrapper">
             
                     <div class="swiper-slide" id="scrollImage" >
@@ -242,7 +242,7 @@
                     <script>
                         // Adiciona o evento de clique na imagem via JavaScript
                         document.getElementById('scrollImage').addEventListener('click', function () {
-                            const targetElement = document.getElementById('contactForm');
+                            const targetElement = document.getElementById('form-container');
                             if (targetElement) {
                                 targetElement.scrollIntoView({ behavior: 'smooth' });
                             } else {
