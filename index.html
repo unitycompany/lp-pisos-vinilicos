@@ -4,6 +4,13 @@
     <!-- Charset -->
     <meta charset="UTF-8">
 
+    <!-- Meta tag -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-M2BPC3G');</script>
+
     <!-- Internet Explorer e Edge -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
@@ -276,12 +283,13 @@
                     <div class="instalacao-card-texts">
                         <h1 data-aos="fade-up" data-aos-delay="500" >Quartzolit para Pisos Vinilicos</h1>
                         <p data-aos="fade-up" data-aos-delay="500" >
-                            Selamento e regularização de contrapisos e lajes de concreto para aplicação de pisos laminados, vinílicos, cerâmicas e madeiras, para tráfego de pessoa.
+                            <b style="font-weight: 500;">Na Fast Sistemas Construtivos</b> você encontra toda a linha de produtos Quartzolit, e tudo que você precisa para fazer a instalação do seu <b style="font-weight: 500;">Piso Vinílico</b>. 
                         </p>
                         <div class="instalacao-card-qualidades" data-aos="fade-in" data-aos-delay="700" >
                             <span>Ideal para pisos vinilicos</span>
                             <span>Qualidade</span>
                             <span>Custo Beneficio</span>
+                            <span>Segurança</span>
                         </div>
                     </div>
                 </div>
@@ -377,6 +385,119 @@
                 <p>Desenvolvido por <a href="https://alephsramos.com.br" target="_blank"> <img src="https://res.cloudinary.com/dabucfkmg/image/upload/v1735845648/Ativo_4_rg3wac.svg"> </a></p>
             </div>
         </div>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+              const formElement = document.querySelector('#contactForm');
+            
+              formElement.addEventListener('submit', function (event) {
+                event.preventDefault();
+            
+                const name = formElement.querySelector('#name').value.trim();
+                const email = formElement.querySelector('#email').value.trim();
+                const whatsapp = formElement.querySelector('#tel').value.trim();
+            
+                // Validação básica
+                if (!name || !email || !whatsapp) {
+                  alert("Por favor, preencha todos os campos corretamente.");
+                  return;
+                }
+            
+                // Exibir overlay de carregamento (caso queira colocar)
+                displayLoadingOverlay(true);
+            
+                // Captura de UTM
+                const utms = getUTMs();
+                const utmSource = utms.utm_source || 'orgânico';
+                const utmMedium = utms.utm_medium || '';
+                const utmCampaign = utms.utm_campaign || '';
+                const utmContent = utms.utm_content || '';
+                const utmTerm = utms.utm_term || '';
+                const pageReferrer = window.location.href || 'URL não encontrada';
+            
+                // Montagem do payload
+                const payload = {
+                  rules: {
+                    update: "false",
+                    filter_status_update: "open",
+                    equal_pipeline: "true",
+                    status: "open",
+                    validate_cpf: "false",
+                  },
+                  leads: [
+                    {
+                      id: "form-sistemas-steel-frame-asr",
+                      user: name,
+                      email: email,
+                      name: name,
+                      personal_phone: whatsapp,
+                      mobile_phone: whatsapp,
+                      last_conversion: {
+                        source: utmSource
+                      },
+                      custom_fields: {
+                        uniqueId: generateUniqueId(),
+                        utm_source: utmSource,
+                        utm_medium: utmMedium,
+                        utm_campaign: utmCampaign,
+                        utm_content: utmContent,
+                        utm_term: utmTerm,
+                        page_referrer: pageReferrer
+                      }
+                    }
+                  ]
+                };
+            
+                // Envio via fetch
+                fetch('https://app.pipe.run/webservice/integradorJson?hash=1e28b707-3c02-4393-bb9d-d3826b060dcd', {
+                  method: 'POST',
+                  headers: {
+                    'Content-Type': 'application/json'
+                  },
+                  body: JSON.stringify(payload)
+                })
+                .then(response => response.json())
+                .then(data => {
+                  console.log('Success:', data);
+                  displayLoadingOverlay(false);
+                  alert('Formulário enviado com sucesso!');
+                  formElement.reset();
+                })
+                .catch((error) => {
+                  console.error('Error:', error);
+                  displayLoadingOverlay(false);
+                  alert('Houve um erro ao enviar o formulário.');
+                });
+              });
+            
+              function generateUniqueId() {
+                // Exemplo simples de ID único
+                return new Date().getTime().toString();
+              }
+            
+              function getUTMs() {
+                const urlParams = new URLSearchParams(window.location.search);
+                return {
+                  utm_source: urlParams.get('utm_source'),
+                  utm_medium: urlParams.get('utm_medium'),
+                  utm_campaign: urlParams.get('utm_campaign'),
+                  utm_content: urlParams.get('utm_content'),
+                  utm_term: urlParams.get('utm_term'),
+                };
+              }
+            
+              function displayLoadingOverlay(show) {
+                // Insira aqui a lógica para exibir/ocultar o overlay
+                if (show) {
+                  console.log("Mostrando overlay de carregamento...");
+                  // Exemplo: document.querySelector('#loadingOverlay').style.display = 'block';
+                } else {
+                  console.log("Removendo overlay de carregamento...");
+                  // Exemplo: document.querySelector('#loadingOverlay').style.display = 'none';
+                }
+              }
+            });
+        </script>
         
         
     </section>
@@ -429,6 +550,11 @@
           // Retire ou comente a linha "disable: mobile" se ela existia
         });
     </script>
+
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M2BPC3G"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
   
 </body>
 </html>
