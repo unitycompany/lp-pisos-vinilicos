@@ -165,6 +165,10 @@
                 <div class="swiper-wrapper">
             
                     <div class="swiper-slide">
+                        <span>
+                            <i class="fa-solid fa-truck-fast"></i>
+                            Pronta entrega
+                        </span>
                         <div class="produtos-image">
                             <img src="https://imagedelivery.net/1n9Gwvykoj9c9m8C_4GsGA/540ead05-32c7-4d05-d34a-d77d872fc000/public" alt="Imagem 1">
                         </div>  
@@ -174,6 +178,10 @@
                     </div>
 
                     <div class="swiper-slide">
+                        <span class="sob-demanda">
+                            <i class="fa-solid fa-box"></i>
+                            Sob Demanda
+                        </span>
                         <div class="produtos-image">
                             <img src="https://imagedelivery.net/1n9Gwvykoj9c9m8C_4GsGA/540ead05-32c7-4d05-d34a-d77d872fc000/public" alt="Imagem 1">
                         </div>  
@@ -208,17 +216,89 @@
                 <!-- Paginação (opcional) -->
                 <div class="swiper-pagination"></div>
                 <div class="produtos-btn">
-                    <!-- Botões de navegação (opcional) -->
-                    <div class="swiper-button-prev" data-aos="fade-up" data-aos-delay="200" >
-                        <i class="fa-solid fa-chevron-left"></i>
+                    <div>                    <!-- Botões de navegação (opcional) -->
+                        <div class="swiper-button-prev" data-aos="fade-up" data-aos-delay="200" >
+                            <i class="fa-solid fa-chevron-left"></i>
+                        </div>
+                        <div class="swiper-button-next" data-aos="fade-up" data-aos-delay="400" >
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </div>
                     </div>
-                    <div class="swiper-button-next" data-aos="fade-up" data-aos-delay="400" >
-                        <i class="fa-solid fa-chevron-right"></i>
+                    <div>
+                        <button id="openModalButton">Ver o catálogo de produtos</button>
                     </div>
+
                 </div>
               </div>
         </div>
     </section>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <form id="contactForm" class="contactForm" data-aos="fade-up" data-aos-delay="100">
+                <h1 data-aos="fade-up-right" data-aos-delay="300">Entre em contato</h1>
+    
+                <label data-aos="fade-up" data-aos-delay="300">
+                    Nome
+                    <input type="text" id="name" placeholder="Robson Barbosa" required>
+                </label>
+    
+                <label data-aos="fade-up" data-aos-delay="300">
+                    E-mail
+                    <input type="email" id="email" placeholder="robsonbarbosa@gmail.com" required>
+                </label>
+    
+                <label data-aos="fade-up" data-aos-delay="300">
+                    WhatsApp
+                    <input type="tel" id="tel" placeholder="24987654321" required>
+                </label>
+    
+                <button type="submit" data-aos="fade-up" data-aos-delay="300">Enviar formulário</button>
+    
+                <span data-aos="fade-up" data-aos-delay="300">
+                    *Todas as informações são enviadas apenas para o meio de contato, ao enviar você concorda com isso!
+                </span>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+        const modal = document.getElementById("modal");
+        const openModalButton = document.getElementById("openModalButton");
+        const closeButton = document.querySelector(".close-button");
+        const contactForm = document.getElementById("contactForm");
+
+        // Open the modal
+        openModalButton.addEventListener("click", () => {
+            modal.style.display = "flex";
+        });
+
+        // Close the modal
+        closeButton.addEventListener("click", () => {
+            modal.style.display = "none";
+        });
+
+        // Submit the form and redirect
+        contactForm.addEventListener("submit", (e) => {
+            e.preventDefault();
+
+            // Optional: Perform any form validation or data processing here
+
+            // Redirect after form submission
+            window.location.href = "https://drive.google.com/file/d/12tV68RecQw2FeSitIrhq1GnpYWnEX_iJ/view?usp=sharing";
+        });
+
+        // Close modal on clicking outside the content
+        window.addEventListener("click", (event) => {
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        });
+    });
+
+    </script>
 
     <section class="diferencas" id="diferencas">
         <div class="diferencas-background"></div>
@@ -236,7 +316,7 @@
                         <h4 data-aos="fade-up" data-aos-delay="300" >Conforto e Tranquilidade</h4>
                     </div>
                     <div class="diferencas-card-text" data-aos="fade-in" data-aos-delay="500" >
-                        <p>Os pisos vinílicos Biancogres proporcionam um ambiente mais agradável reduzindo ruídos, como passos ou objetos caindo. São ideais para apartamentos ou casas onde se busca maior tranquilidade.</p>
+                        <p>Os pisos vinílicos Biancogres proporcionam um ambiente mais agradável reduzindo ruídos, como passos ou objetos caindo. São ideais para apartamentos ou casas onde se busca maior tranquilidade.ㅤㅤㅤ</p>
                     </div>
                 </div>
 

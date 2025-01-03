@@ -106,12 +106,43 @@
 .produtos-btn{
     height: 5vh;
     margin-top: 20px;
-    width: 90px;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
     position: relative;
     left: 0;
+}
+
+.swiper-slide span{
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    color: var(--color--brown);
+    background-color: var(--color--white);
+    padding: 5px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 300;
+    gap: 10px;
+}
+
+.swiper-slide .sob-demanda{
+    color: var(--color--black);
+}
+
+.produtos-btn div:nth-child(1){
+    display: flex;
+    gap: 5px;
+}
+
+.produtos-btn div:nth-child(2) button{
+    padding: 12px 20px;
+    border-radius: 0;
+    font-weight: 400;
+    font-size: 14px;
+    cursor: pointer;
 }
 
 .swiper-button-prev, .swiper-button-next{
@@ -136,6 +167,44 @@
   content: none !important;
   background: none !important;
 }
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    z-index: 5;
+}
+
+.modal-content .contactForm{
+    width: 100%;
+}
+
+.modal-content label{
+    width: 100%!important;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    width: 800px;
+    position: relative;
+    box-shadow: 0 0 20px rgba(0,0,0,0.8);
+}
+
+.close-button {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 4;
+}
+
 
 @media (max-width: 768px){
     .produtos-title{
