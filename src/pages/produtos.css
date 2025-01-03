@@ -78,7 +78,7 @@
 }
 
 .produtos-image img{
-    width: 25%!important;
+    width: 100%!important;
     height: 400px!important;
     object-fit: contain!important;
     transform: rotate(-25deg);
