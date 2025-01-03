@@ -149,8 +149,16 @@
     .instalacao-card{
         height: auto;
         flex-direction: column;
+        display: flex;
         padding: 30px;
     }
+
+    .instalacao-card-image img{
+        width: 250px;
+        object-fit: contain;
+        margin-top: 25px;
+    }
+    
 
     .instalacao-card-float{
         left: 50%;
