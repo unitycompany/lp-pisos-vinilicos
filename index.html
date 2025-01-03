@@ -382,33 +382,33 @@
     </section>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-        <script>
-            const swiper = new Swiper('.swiper', {
-            spaceBetween: 20,
-            slidesPerView: 3,
-            breakpoints: {
-                0: {
-                slidesPerView: 1,
-                },
-                768: {
-                slidesPerView: 3, 
-                },
+    <script>
+        const swiper = new Swiper('.swiper', {
+        spaceBetween: 20,
+        slidesPerView: 3,
+        breakpoints: {
+            0: {
+            slidesPerView: 1,
             },
-            loop: true,
-            autoplay: {
-                delay: 3000,           
-                disableOnInteraction: false, 
+            768: {
+            slidesPerView: 3, 
             },
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            },
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-            },
-            });
-        </script>
+        },
+        loop: true,
+        autoplay: {
+            delay: 3000,           
+            disableOnInteraction: false, 
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        });
+    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
 
@@ -428,7 +428,7 @@
           once: isMobile ? true : false,
           // Retire ou comente a linha "disable: mobile" se ela existia
         });
-      </script>
+    </script>
   
 </body>
 </html>
