@@ -171,16 +171,16 @@
         </div>
 
         <div class="produtos-carrossel" data-aos="fade-up" data-aos-delay="100" >
-            <div class="swiper" id="scrollImage" >
+            <div class="swiper">
                 <div class="swiper-wrapper">
             
-                    <div class="swiper-slide" id="scrollImage" >
+                    <div class="swiper-slide">
                         <span>
                             <i class="fa-solid fa-truck-fast"></i>
                             Pronta entrega
                         </span>
-                        <div class="produtos-image">
-                            <img src="https://imagedelivery.net/1n9Gwvykoj9c9m8C_4GsGA/ac05051b-babe-4b32-a634-5997f8663900/public" alt="Imagem 1">
+                        <div class="produtos-image scrollImage" >
+                            <img src="https://imagedelivery.net/1n9Gwvykoj9c9m8C_4GsGA/1cd78c4e-a2b8-4b4d-6e7e-3afae4c8e900/public" alt="Imagem 1">
                         </div>  
                         <div class="produtos-name">
                             <p>Amadeirado</p>
@@ -192,8 +192,8 @@
                             <i class="fa-solid fa-dolly"></i>
                             Sob demanda
                         </span>
-                        <div class="produtos-image">
-                            <img src="https://imagedelivery.net/1n9Gwvykoj9c9m8C_4GsGA/23e39863-91b5-414e-1766-12057b1aba00/public" alt="Imagem 1">
+                        <div class="produtos-image scrollImage">
+                            <img src="https://imagedelivery.net/1n9Gwvykoj9c9m8C_4GsGA/5d03d877-e884-44ce-7883-67424c813000/public" alt="Imagem 1">
                         </div>  
                         <div class="produtos-name">
                             <p>Marmore</p>
@@ -205,8 +205,8 @@
                             <i class="fa-solid fa-dolly"></i>
                             Sob demanda
                         </span>
-                        <div class="produtos-image">
-                            <img src="https://imagedelivery.net/1n9Gwvykoj9c9m8C_4GsGA/b09fddcc-1aad-4ba4-ef93-99aeb00f3400/public" alt="Imagem 1">
+                        <div class="produtos-image scrollImage" >
+                            <img src="https://imagedelivery.net/1n9Gwvykoj9c9m8C_4GsGA/6f3c1f4d-6168-41a2-8e48-97e97d81e100/public" alt="Imagem 1">
                         </div>  
                         <div class="produtos-name">
                             <p>Cimento Queimado</p>
@@ -218,8 +218,8 @@
                             <i class="fa-solid fa-dolly"></i>
                             Sob demanda
                         </span>
-                        <div class="produtos-image">
-                            <img src="https://imagedelivery.net/1n9Gwvykoj9c9m8C_4GsGA/a42b318c-8921-448f-12c8-204f4424bb00/public" alt="Imagem 1">
+                        <div class="produtos-image scrollImage" >
+                            <img src="https://imagedelivery.net/1n9Gwvykoj9c9m8C_4GsGA/9ad75914-e91a-4f87-83b7-db894110ad00/public" alt="Imagem 1">
                         </div>  
                         <div class="produtos-name">
                             <p>Granilite</p>
@@ -231,8 +231,8 @@
                             <i class="fa-solid fa-dolly"></i>
                             Sob demanda
                         </span>
-                        <div class="produtos-image">
-                            <img src="https://imagedelivery.net/1n9Gwvykoj9c9m8C_4GsGA/e508eed0-bb77-4014-be6f-94f50a090800/public" alt="Imagem 1">
+                        <div class="produtos-image scrollImage" >
+                            <img src="https://imagedelivery.net/1n9Gwvykoj9c9m8C_4GsGA/09e705c6-e8e6-4c4c-4293-a69c9565ca00/public" alt="Imagem 1">
                         </div>  
                         <div class="produtos-name">
                             <p>Granito</p>
@@ -244,8 +244,8 @@
                             <i class="fa-solid fa-dolly"></i>
                             Sob demanda
                         </span>
-                        <div class="produtos-image">
-                            <img src="https://imagedelivery.net/1n9Gwvykoj9c9m8C_4GsGA/c4ac6a5b-a4c2-46b3-a0b7-a94fb42fcc00/public" alt="Imagem 1">
+                        <div class="produtos-image scrollImage" >
+                            <img src="https://imagedelivery.net/1n9Gwvykoj9c9m8C_4GsGA/5edd2236-0fc2-4ed9-d20b-2ad615c8c100/public" alt="Imagem 1">
                         </div>  
                         <div class="produtos-name">
                             <p>Linho Nero</p>
@@ -253,16 +253,19 @@
                     </div>
 
                     <script>
-                        // Adiciona o evento de clique na imagem via JavaScript
-                        document.getElementById('scrollImage').addEventListener('click', function () {
-                            const targetElement = document.getElementById('form-container');
-                            if (targetElement) {
-                                targetElement.scrollIntoView({ behavior: 'smooth' });
-                            } else {
-                                console.error('Elemento #contactForm não encontrado.');
-                            }
+                        // Adiciona o evento de clique para todos os elementos com a classe "scrollImage"
+                        document.querySelectorAll('.scrollImage').forEach(function (element) {
+                            element.addEventListener('click', function () {
+                                const targetElement = document.getElementById('form-container');
+                                if (targetElement) {
+                                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                                } else {
+                                    console.error('Elemento #form-container não encontrado.');
+                                }
+                            });
                         });
                     </script>
+                    
                   
                   <!-- Adicione quantos slides quiser -->
                 </div>
