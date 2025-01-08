@@ -293,22 +293,22 @@
     <div id="modal" class="modal">
         <div class="modal-content">
             <span class="close-button">&times;</span>
-            <form id="contactForm" class="contactForm" data-aos="fade-up" data-aos-delay="100">
+            <form id="contactFormCatalago" class="contactFormCatalogo" data-aos="fade-up" data-aos-delay="100">
                 <h1 data-aos="fade-up-right" data-aos-delay="300">Adquira nosso catálogo</h1>
     
                 <label data-aos="fade-up" data-aos-delay="300">
                     Nome
-                    <input type="text" id="name" placeholder="Robson Barbosa" required>
+                    <input type="text" id="nameCatalogo" placeholder="Robson Barbosa" required>
                 </label>
     
                 <label data-aos="fade-up" data-aos-delay="300">
                     E-mail
-                    <input type="email" id="email" placeholder="robsonbarbosa@gmail.com" required>
+                    <input type="email" id="emailCatalogo" placeholder="robsonbarbosa@gmail.com" required>
                 </label>
     
                 <label data-aos="fade-up" data-aos-delay="300">
                     WhatsApp
-                    <input type="tel" id="tel" placeholder="24987654321" required>
+                    <input type="tel" id="telCatalogo" placeholder="24987654321" required>
                 </label>
     
                 <button type="submit" data-aos="fade-up" data-aos-delay="300">Enviar formulário</button>
@@ -319,13 +319,13 @@
             </form>
         </div>
     </div>
-
+<!-- 
     <script>
         document.addEventListener("DOMContentLoaded", () => {
         const modal = document.getElementById("modal");
         const openModalButton = document.getElementById("openModalButton");
         const closeButton = document.querySelector(".close-button");
-        const contactForm = document.getElementById("contactForm");
+        const contactForm = document.getElementById("contactFormCatalogo");
 
         // Open the modal
         openModalButton.addEventListener("click", () => {
@@ -355,7 +355,7 @@
         });
     });
 
-    </script>
+    </script> -->
 
     <section class="diferencas" id="diferencas">
         <div class="diferencas-background"></div>
@@ -536,35 +536,49 @@
         </div>
 
         <script>
-            document.addEventListener('DOMContentLoaded', function () {
-              const formElement = document.querySelector('#contactForm');
-            
-              formElement.addEventListener('submit', function (event) {
+            document.addEventListener("DOMContentLoaded", () => {
+              // Elementos do modal
+              const modal = document.getElementById("modal");
+              const openModalButton = document.getElementById("openModalButton");
+              const closeButton = document.querySelector(".close-button");
+              const contactFormCatalogo = document.getElementById("contactFormCatalogo");
+          
+              // Elementos do formulário principal
+              const contactForm = document.getElementById("contactForm");
+          
+              // Abrir o modal
+              openModalButton.addEventListener("click", () => {
+                modal.style.display = "flex";
+              });
+          
+              // Fechar o modal
+              closeButton.addEventListener("click", () => {
+                modal.style.display = "none";
+              });
+          
+              // Fechar o modal ao clicar fora do conteúdo
+              window.addEventListener("click", (event) => {
+                if (event.target === modal) {
+                  modal.style.display = "none";
+                }
+              });
+          
+              // Enviar o formulário principal
+              contactForm.addEventListener("submit", (event) => {
                 event.preventDefault();
-            
-                const name = formElement.querySelector('#name').value.trim();
-                const email = formElement.querySelector('#email').value.trim();
-                const whatsapp = formElement.querySelector('#tel').value.trim();
-            
-                // Validação básica
+          
+                const name = contactForm.querySelector("#name").value.trim();
+                const email = contactForm.querySelector("#email").value.trim();
+                const whatsapp = contactForm.querySelector("#tel").value.trim();
+          
                 if (!name || !email || !whatsapp) {
                   alert("Por favor, preencha todos os campos corretamente.");
                   return;
                 }
-            
-                // Exibir overlay de carregamento (caso queira colocar)
+          
                 displayLoadingOverlay(true);
-            
-                // Captura de UTM
+          
                 const utms = getUTMs();
-                const utmSource = utms.utm_source || 'orgânico';
-                const utmMedium = utms.utm_medium || '';
-                const utmCampaign = utms.utm_campaign || '';
-                const utmContent = utms.utm_content || '';
-                const utmTerm = utms.utm_term || '';
-                const pageReferrer = window.location.href || 'URL não encontrada';
-            
-                // Montagem do payload
                 const payload = {
                   rules: {
                     update: "false",
@@ -582,76 +596,91 @@
                       personal_phone: whatsapp,
                       mobile_phone: whatsapp,
                       last_conversion: {
-                        source: utmSource
+                        source: utms.utm_source || "orgânico",
                       },
                       custom_fields: {
                         uniqueId: generateUniqueId(),
-                        utm_source: utmSource,
-                        utm_medium: utmMedium,
-                        utm_campaign: utmCampaign,
-                        utm_content: utmContent,
-                        utm_term: utmTerm,
-                        page_referrer: pageReferrer
-                      }
-                    }
-                  ]
+                        utm_source: utms.utm_source || "",
+                        utm_medium: utms.utm_medium || "",
+                        utm_campaign: utms.utm_campaign || "",
+                        utm_content: utms.utm_content || "",
+                        utm_term: utms.utm_term || "",
+                        page_referrer: window.location.href || "URL não encontrada",
+                      },
+                    },
+                  ],
                 };
-            
-                // Envio via fetch
-                fetch('https://app.pipe.run/webservice/integradorJson?hash=1e28b707-3c02-4393-bb9d-d3826b060dcd', {
-                  method: 'POST',
-                  headers: {
-                    'Content-Type': 'application/json'
-                  },
-                  body: JSON.stringify(payload)
-                })
-                .then(response => response.json())
-                .then(data => {
-                  console.log('Success:', data);
-                  displayLoadingOverlay(false);
-                  alert('Formulário enviado com sucesso!');
-                  formElement.reset();
-                })
-                .catch((error) => {
-                  console.error('Error:', error);
-                  displayLoadingOverlay(false);
-                  alert('Houve um erro ao enviar o formulário.');
-                });
+          
+                fetch(
+                  "https://app.pipe.run/webservice/integradorJson?hash=1e28b707-3c02-4393-bb9d-d3826b060dcd",
+                  {
+                    method: "POST",
+                    headers: {
+                      "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(payload),
+                  }
+                )
+                  .then((response) => response.json())
+                  .then((data) => {
+                    console.log("Success:", data);
+                    displayLoadingOverlay(false);
+                    alert("Formulário enviado com sucesso!");
+                    contactForm.reset();
+                  })
+                  .catch((error) => {
+                    console.error("Error:", error);
+                    displayLoadingOverlay(false);
+                    alert("Houve um erro ao enviar o formulário.");
+                  });
               });
-            
+          
+              // Enviar o formulário do catálogo
+              contactFormCatalogo.addEventListener("submit", (e) => {
+                e.preventDefault();
+          
+                // Lógica de redirecionamento
+                window.open(
+                  "https://drive.google.com/file/d/12tV68RecQw2FeSitIrhq1GnpYWnEX_iJ/view?usp=sharing",
+                  "_blank"
+                );
+                modal.style.display = "none";
+              });
+          
+              // Funções auxiliares
               function generateUniqueId() {
-                // Exemplo simples de ID único
                 return new Date().getTime().toString();
               }
-            
+          
               function getUTMs() {
                 const urlParams = new URLSearchParams(window.location.search);
                 return {
-                  utm_source: urlParams.get('utm_source'),
-                  utm_medium: urlParams.get('utm_medium'),
-                  utm_campaign: urlParams.get('utm_campaign'),
-                  utm_content: urlParams.get('utm_content'),
-                  utm_term: urlParams.get('utm_term'),
+                  utm_source: urlParams.get("utm_source"),
+                  utm_medium: urlParams.get("utm_medium"),
+                  utm_campaign: urlParams.get("utm_campaign"),
+                  utm_content: urlParams.get("utm_content"),
+                  utm_term: urlParams.get("utm_term"),
                 };
               }
-            
+          
               function displayLoadingOverlay(show) {
-                // Insira aqui a lógica para exibir/ocultar o overlay
                 if (show) {
                   console.log("Mostrando overlay de carregamento...");
-                  // Exemplo: document.querySelector('#loadingOverlay').style.display = 'block';
+                  // Exemplo: document.querySelector("#loadingOverlay").style.display = "block";
                 } else {
                   console.log("Removendo overlay de carregamento...");
-                  // Exemplo: document.querySelector('#loadingOverlay').style.display = 'none';
+                  // Exemplo: document.querySelector("#loadingOverlay").style.display = "none";
                 }
               }
             });
-        </script>
+          </script>
+          
         
         
     </section>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+
     <script>
         const swiper = new Swiper('.swiper', {
     spaceBetween: 5,
