@@ -101,6 +101,60 @@
     width: 100%;
 }
 
+
+.contactFormCatalogo{
+    width: 100%;
+    padding: 50px;  
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    background-color: var(--color--white);
+}
+
+.contactFormCatalogo h1{
+    font-size: 35px;
+    font-weight: 500;
+}
+
+.contactFormCatalogo label{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--color--gray);
+    width: 100%;
+}
+
+.contactFormCatalogo label input{
+    padding: 14px;
+    border: 1px solid var(--color--gray);
+}
+
+.contactFormCatalogo label input::placeholder{
+    font-size: 14px;
+    color: var(--color--gray);
+    opacity: 0.6;
+}
+
+.contactFormCatalogo button{
+    width: 100%;
+    border: none;
+    border-radius: 0!important;
+    padding: 12px;
+}
+
+.contactFormCatalogo button:hover{
+    transform: none!important;
+}
+
+.contactFormCatalogo span{
+    font-size: 12px;
+    opacity: 0.6;
+    width: 100%;
+}
+
 .form-footer{
     width: 100%;
     display: flex;
@@ -168,6 +222,23 @@
     }
 
     .contactForm label input::placeholder{
+        font-size: 12px;
+    }
+
+    .contactFormCatalogo{
+        width: 100%;
+        padding: 30px 20px;
+    }
+
+    .contactFormCatalogo h1{
+        font-size: 30px;
+    }
+
+    .contactFormCatalogo label{
+        font-size: 16px;
+    }
+
+    .contactFormCatalogo label input::placeholder{
         font-size: 12px;
     }
 
